@@ -8,6 +8,7 @@ class LoaderApplicationTests {
 
 	@Test
 	void contextLoads() {
+		throw new RuntimeException();
 	}
 
 }
