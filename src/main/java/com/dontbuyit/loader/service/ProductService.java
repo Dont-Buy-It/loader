@@ -13,11 +13,13 @@ import static java.util.stream.Collectors.toList;
 public class ProductService {
 
   @Autowired
-  private CsvService csvService;
+  private CsvLoadingService csvLoadingService;
+  @Autowired
+  private CsvParsingService csvParsingService;
 
   public List<ProductModel> getProducts() {
-    final String productsCsv = csvService.loadProductsCsv();
-    return csvService.parseCsv(productsCsv, ProductModel.class).stream()
+    final String productsCsv = csvLoadingService.loadProductsCsv();
+    return csvParsingService.parseCsv(productsCsv, ProductModel.class).stream()
         .sorted(comparing(ProductModel::getName))
         .collect(toList());
   }

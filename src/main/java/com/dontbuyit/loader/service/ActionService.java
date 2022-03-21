@@ -6,14 +6,22 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static java.util.Comparator.comparing;
+import static java.util.stream.Collectors.toList;
+
 @Service
 public class ActionService {
 
   @Autowired
-  private CsvService csvService;
+  private CsvLoadingService csvLoadingService;
+  @Autowired
+  private CsvParsingService csvParsingService;
 
   public List<ActionModel> getActions() {
-    final String csvString = csvService.loadActionsCsv();
-    return csvService.parseCsv(csvString, ActionModel.class);
+    final String csvString = csvLoadingService.loadActionsCsv();
+    final List<ActionModel> actionModels = csvParsingService.parseCsv(csvString, ActionModel.class);
+    return actionModels.stream()
+        .sorted(comparing(ActionModel::getPriority))
+        .collect(toList());
   }
 }
