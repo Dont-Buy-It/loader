@@ -20,4 +20,7 @@ public class ActionModel {
 
   @CsvBindByPosition(position = 4)
   private int priority;
+
+  @CsvBindByPosition(position = 5)
+  private boolean isAvailableForPurchase;
 }
