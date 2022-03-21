@@ -33,3 +33,12 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+sourceSets {
+	integration {
+		java.srcDir "$projectDir/src/test-integration/java"
+		resources.srcDir "$projectDir/src/test-integration/resources"
+		compileClasspath += main.output + test.output
+		runtimeClasspath += main.output + test.output
+	}
+}
