@@ -10,10 +10,12 @@ import java.util.List;
 public class BrandImageService {
 
   @Autowired
-  private CsvService csvService;
+  private CsvLoadingService csvLoadingService;
+  @Autowired
+  private CsvParsingService csvParsingService;
 
   public List<BrandImageModel> getBrandImages() {
-    final String csvString = csvService.loadBrandImagesCsv();
-    return csvService.parseCsv(csvString, BrandImageModel.class);
+    final String csvString = csvLoadingService.loadBrandImagesCsv();
+    return csvParsingService.parseCsv(csvString, BrandImageModel.class);
   }
 }
