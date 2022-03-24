@@ -56,6 +56,8 @@ public class ActionsTest {
         .perform(get(URL))
         .andExpect(status().isOk())
         .andExpect(content().json(getActionsResponse()));
+
+    throw new RuntimeException();
   }
 
   private String getActionsCsv() throws IOException {
