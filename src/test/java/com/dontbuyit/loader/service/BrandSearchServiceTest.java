@@ -32,15 +32,15 @@ class BrandSearchServiceTest {
       .build();
   private final BrandModel brandModelWithoutSearchedName = BrandModel.builder()
       .name(BRAND_NAME_WITHOUT_SEARCH_STRING)
-      .productModels(List.of(productModelWithoutSearchedName))
+      .products(List.of(productModelWithoutSearchedName))
       .build();
   private final BrandModel brandModelWithSearchedName = BrandModel.builder()
       .name(BRAND_NAME_WITH_SEARCH_STRING)
-      .productModels(List.of(productModelWithoutSearchedName))
+      .products(List.of(productModelWithoutSearchedName))
       .build();
   private final BrandModel brandModelWithSearchedProductName = BrandModel.builder()
       .name(BRAND_NAME_WITHOUT_SEARCH_STRING)
-      .productModels(List.of(productModelWithSearchedName))
+      .products(List.of(productModelWithSearchedName))
       .build();
   private final List<BrandModel> brandModels = List.of(
       brandModelWithoutSearchedName, brandModelWithSearchedName, brandModelWithSearchedProductName);

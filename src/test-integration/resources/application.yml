@@ -1,0 +1,31 @@
+api:
+  version: 1.0
+
+server:
+  port: 2000
+
+spring:
+  main:
+    banner-mode: "off"
+
+springdoc:
+  pathsToMatch: /api/**
+  api-docs.path: /spec/index
+  model-converters.pageable-converter.enabled: true
+
+services:
+  external:
+    csv:
+      brands:
+        url: http://brands.csv.url.com
+      brandImages:
+        url: http://brand-images.csv.url.com
+      products:
+        url: http://products.csv.url.com
+      actions:
+        url: http://actions.csv.url.com
+
+cache:
+  brands:
+    name: brands
+    cron: "0 0 * * * *"

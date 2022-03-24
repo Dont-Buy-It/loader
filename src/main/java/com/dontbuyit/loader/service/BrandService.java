@@ -57,7 +57,7 @@ public class BrandService {
   private void attachProducts(BrandModel brandModel, Map<String, List<ProductModel>> productsByBrandNames) {
     final List<ProductModel> filteredProducts = productsByBrandNames
         .getOrDefault(brandModel.getName().toLowerCase(), List.of());
-    brandModel.setProductModels(filteredProducts);
+    brandModel.setProducts(filteredProducts);
   }
 
   private void attachImage(BrandModel brandModel, List<BrandImageModel> brandImageModels) {

@@ -69,7 +69,7 @@ class BrandServiceTest {
 
     brandService.getBrandsDto();
 
-    assertEquals(productModels, brandModel1.getProductModels());
+    assertEquals(productModels, brandModel1.getProducts());
   }
 
   @Test

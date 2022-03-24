@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Product1",
+    "brandName": "Brand1",
+    "imageUrl": "http://product1.com/image"
+  },
+  {
+    "name": "Product2",
+    "brandName": "Brand1",
+    "imageUrl": "http://product2.com/image"
+  },
+  {
+    "name": "Product3",
+    "brandName": "Brand2",
+    "imageUrl": "http://product3.com/image"
+  }
+]

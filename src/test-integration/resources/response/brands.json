@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Brand1",
+    "action": "Action1",
+    "notes": "Note1",
+    "actionEsp": "ActionEsp1",
+    "imageUrl": "http://brand1.com/image",
+    "products": [
+      {
+        "name": "Product1",
+        "brandName": "Brand1",
+        "imageUrl": "http://product1.com/image"
+      },
+      {
+        "name": "Product2",
+        "brandName": "Brand1",
+        "imageUrl": "http://product2.com/image"
+      }
+    ]
+  },
+  {
+    "name": "Brand2",
+    "action": "Action2",
+    "notes": "Note2",
+    "actionEsp": "ActionEsp2",
+    "imageUrl": "http://brand2.com/image",
+    "products": [
+      {
+        "name": "Product3",
+        "brandName": "Brand2",
+        "imageUrl": "http://product3.com/image"
+      }
+    ]
+  }
+]
