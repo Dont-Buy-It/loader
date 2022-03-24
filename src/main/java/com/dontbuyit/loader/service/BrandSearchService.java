@@ -46,7 +46,7 @@ public class BrandSearchService {
   private boolean brandMatchesSearch(BrandModel brandModel, String search) {
     final String lowerCaseSearch = search.toLowerCase();
     return brandModel.getName().toLowerCase().contains(lowerCaseSearch) ||
-        brandModel.getProductModels().stream()
+        brandModel.getProducts().stream()
             .map(ProductModel::getName)
             .map(String::toLowerCase)
             .anyMatch(name -> name.contains(lowerCaseSearch));

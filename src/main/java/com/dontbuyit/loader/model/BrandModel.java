@@ -28,5 +28,5 @@ public class BrandModel {
 
   private String imageUrl;
 
-  private List<ProductModel> productModels;
+  private List<ProductModel> products;
 }

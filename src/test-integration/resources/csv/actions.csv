@@ -1,0 +1,4 @@
+"Name","Display Name","Description","Color","Priority","Is Available for Purchase"
+"Action1","Action1 Display Name","Action1 Description","#000001","0","TRUE"
+"Action2","Action2 Display Name","Action2 Description","#000002","1","TRUE"
+"Action3","Action3 Display Name","Action3 Description","#000003","2","FALSE"
