@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Action1",
+    "displayName": "Action1 Display Name",
+    "description": "Action1 Description",
+    "color": "#000001",
+    "priority": 0,
+    "availableForPurchase": true
+  },
+  {
+    "name": "Action2",
+    "displayName": "Action2 Display Name",
+    "description": "Action2 Description",
+    "color": "#000002",
+    "priority": 1,
+    "availableForPurchase": true
+  },
+  {
+    "name": "Action3",
+    "displayName": "Action3 Display Name",
+    "description": "Action3 Description",
+    "color": "#000003",
+    "priority": 2,
+    "availableForPurchase": false
+  }
+]

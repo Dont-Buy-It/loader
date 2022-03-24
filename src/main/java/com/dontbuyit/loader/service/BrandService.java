@@ -15,13 +15,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.toList;
 
 @Service
 public class BrandService {
 
   @Autowired
-  private CsvService csvService;
+  private CsvLoadingService csvLoadingService;
+  @Autowired
+  private CsvParsingService csvParsingService;
   @Autowired
   private ProductService productService;
   @Autowired
@@ -29,14 +33,20 @@ public class BrandService {
 
   @Cacheable(value = "${cache.brands.name}")
   public BrandsDto getBrandsDto() {
-    final String brandsCsv = csvService.loadBrandsCsv();
-    final List<BrandModel> brandModels = csvService.parseCsv(brandsCsv, BrandModel.class);
+    final String brandsCsv = csvLoadingService.loadBrandsCsv();
+    final List<BrandModel> brandModels = csvParsingService.parseCsv(brandsCsv, BrandModel.class);
     final Map<String, List<ProductModel>> productsByBrandNames = productService.getProducts().stream()
         .collect(groupingBy(productModel -> productModel.getBrandName().toLowerCase()));
     brandModels.forEach(brandModel -> attachProducts(brandModel, productsByBrandNames));
     final List<BrandImageModel> brandImageModels = brandImageService.getBrandImages();
     brandModels.forEach(brandModel -> attachImage(brandModel, brandImageModels));
-    return BrandsDto.of(brandModels, ZonedDateTime.now());
+    final List<BrandModel> sortedBrandModels = brandModels.stream()
+        .sorted(comparing(BrandModel::getName))
+        .collect(toList());
+    return BrandsDto.builder()
+        .brands(sortedBrandModels)
+        .lastUpdatedTime(ZonedDateTime.now())
+        .build();
   }
 
   @Scheduled(cron = "${cache.brands.cron}")
@@ -47,7 +57,7 @@ public class BrandService {
   private void attachProducts(BrandModel brandModel, Map<String, List<ProductModel>> productsByBrandNames) {
     final List<ProductModel> filteredProducts = productsByBrandNames
         .getOrDefault(brandModel.getName().toLowerCase(), List.of());
-    brandModel.setProductModels(filteredProducts);
+    brandModel.setProducts(filteredProducts);
   }
 
   private void attachImage(BrandModel brandModel, List<BrandImageModel> brandImageModels) {

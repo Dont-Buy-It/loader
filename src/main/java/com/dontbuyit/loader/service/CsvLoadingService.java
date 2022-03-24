@@ -1,20 +1,17 @@
 package com.dontbuyit.loader.service;
 
-import com.opencsv.bean.CsvToBeanBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.util.UriBuilder;
 
-import java.io.StringReader;
 import java.net.URI;
 import java.time.ZonedDateTime;
-import java.util.List;
 import java.util.function.Function;
 
 @Service
-public class CsvService {
+public class CsvLoadingService {
 
   private static final String CSV_VERSION_QUERY_PARAM = "v";
 
@@ -45,14 +42,6 @@ public class CsvService {
 
   public String loadBrandImagesCsv() {
     return loadCsv(brandImagesCsvUrl, UriBuilder::build);
-  }
-
-  public <T> List<T> parseCsv(String csvString, Class<T> type) {
-    return new CsvToBeanBuilder<T>(new StringReader(csvString))
-        .withType(type)
-        .withSkipLines(1)
-        .build()
-        .parse();
   }
 
   private String loadCsv(String url, Function<UriBuilder, URI> uriFunction) {

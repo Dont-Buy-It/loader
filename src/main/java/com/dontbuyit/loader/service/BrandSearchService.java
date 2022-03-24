@@ -15,6 +15,8 @@ import static java.util.stream.Collectors.toList;
 @Service
 public class BrandSearchService {
 
+  private static final int DEFAULT_OFFSET = 0;
+
   @Autowired
   private BrandService brandService;
 
@@ -22,7 +24,10 @@ public class BrandSearchService {
     final BrandsDto brandsDto = brandService.getBrandsDto();
     final List<BrandModel> filteredBrands = filterBrands(brandsDto.getBrands(), search);
     final List<BrandModel> brands = paginateBrands(filteredBrands, page, limit);
-    return BrandsDto.of(brands, brandsDto.getLastUpdatedTime());
+    return BrandsDto.builder()
+        .brands(brands)
+        .lastUpdatedTime(brandsDto.getLastUpdatedTime())
+        .build();
   }
 
   private List<BrandModel> filterBrands(List<BrandModel> brandModels, String search) {
@@ -33,8 +38,7 @@ public class BrandSearchService {
 
   private List<BrandModel> paginateBrands(List<BrandModel> brandModels, Long page, Long limit) {
     return brandModels.stream()
-        .sorted(comparing(BrandModel::getName))
-        .skip((nonNull(page) && nonNull(limit)) ? page * limit : 0)
+        .skip((nonNull(page) && nonNull(limit)) ? page * limit : DEFAULT_OFFSET)
         .limit(nonNull(limit) ? limit : brandModels.size())
         .collect(toList());
   }
@@ -42,7 +46,7 @@ public class BrandSearchService {
   private boolean brandMatchesSearch(BrandModel brandModel, String search) {
     final String lowerCaseSearch = search.toLowerCase();
     return brandModel.getName().toLowerCase().contains(lowerCaseSearch) ||
-        brandModel.getProductModels().stream()
+        brandModel.getProducts().stream()
             .map(ProductModel::getName)
             .map(String::toLowerCase)
             .anyMatch(name -> name.contains(lowerCaseSearch));
