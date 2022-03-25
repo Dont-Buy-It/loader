@@ -1,14 +1,41 @@
 # loader
 API for obtaining external brands, brand images, products and actions data.
 
-## Running the application locally
+### Environment variables
+```
+ADMIN_USERNAME=admin
+ADMIN_PASSWORD=admin
+BRANDS_CSV_URL=https://static.dwcdn.net/data/4yMOy.csv
+BRAND_IMAGES_CSV_URL=https://docs.google.com/spreadsheets/d/1eX7JGrhg9Jagl0zVj3_NkRfhZmpKDbDbq8z4e-kil38/gviz/tq?tqx=out:csv&sheet=brand-images
+PRODUCTS_CSV_URL=https://docs.google.com/spreadsheets/d/1eX7JGrhg9Jagl0zVj3_NkRfhZmpKDbDbq8z4e-kil38/gviz/tq?tqx=out:csv&sheet=products
+ACTIONS_CSV_URL=https://docs.google.com/spreadsheets/d/1eX7JGrhg9Jagl0zVj3_NkRfhZmpKDbDbq8z4e-kil38/gviz/tq?tqx=out:csv&sheet=actions
+```
+
+### Running the application locally
 ```shell
 gradle bootRun
 ```
+Application runs on http://localhost:2000
 
-Application runs on `localhost:2000`
+### Running unit tests
+```shell
+gradle test
+```
 
-## View Documentation (locally)
-Swagger documentation: http://localhost:2000/swagger-ui/index.html
+### Running integration tests
+```shell
+gradle integrationTest
+```
 
-OpenAPI documentation: http://localhost:2000/spec/index
+### Documentation
+Swagger documentation: https://dont-buy-it-loader.herokuapp.com/swagger-ui/index.html
+
+OpenAPI documentation: https://dont-buy-it-loader.herokuapp.com/spec/index
+
+### Actuator
+https://dont-buy-it-loader.herokuapp.com/actuator
+
+### CSV sources
+Brands: https://static.dwcdn.net/data/4yMOy.csv
+
+Brand Images, Products, Actions: https://docs.google.com/spreadsheets/d/1L4vejFtHrg5v4PLy2x4cUsobTJxQtqHzgQtR_GnQrWI/edit?usp=sharing
