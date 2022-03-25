@@ -2,6 +2,7 @@ package com.dontbuyit.loader.service;
 
 import com.dontbuyit.loader.model.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,7 @@ public class ProductService {
   @Autowired
   private CsvParsingService csvParsingService;
 
+  @Cacheable(value = "products")
   public List<ProductModel> getProducts() {
     final String productsCsv = csvLoadingService.loadProductsCsv();
     return csvParsingService.parseCsv(productsCsv, ProductModel.class).stream()
