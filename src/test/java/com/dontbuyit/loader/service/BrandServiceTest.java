@@ -81,11 +81,6 @@ class BrandServiceTest {
     assertEquals(IMAGE_URL, brandModel1.getImageUrl());
   }
 
-  @Test
-  void shouldNotThrowExceptionsOnClearCache() {
-    brandService.clearCache();
-  }
-
   private void setUpMocks() {
     when(csvLoadingServiceMock.loadBrandsCsv()).thenReturn(BRANDS_CSV_STRING);
     when(csvParsingServiceMock.parseCsv(BRANDS_CSV_STRING, BrandModel.class)).thenReturn(brandModels);

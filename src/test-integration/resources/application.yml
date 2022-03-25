@@ -13,6 +13,12 @@ springdoc:
   api-docs.path: /spec/index
   model-converters.pageable-converter.enabled: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,caches
+
 services:
   external:
     csv:
@@ -26,6 +32,8 @@ services:
         url: http://actions.csv.url.com
 
 cache:
-  brands:
-    name: brands
-    cron: "0 0 * * * *"
+  cron: "0 0 * * * *"
+
+admin:
+  username: ${ADMIN_USERNAME:admin}
+  password: ${ADMIN_PASSWORD:admin}

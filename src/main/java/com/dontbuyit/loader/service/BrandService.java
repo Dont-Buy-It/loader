@@ -31,7 +31,7 @@ public class BrandService {
   @Autowired
   private BrandImageService brandImageService;
 
-  @Cacheable(value = "${cache.brands.name}")
+  @Cacheable(value = "brands")
   public BrandsDto getBrandsDto() {
     final String brandsCsv = csvLoadingService.loadBrandsCsv();
     final List<BrandModel> brandModels = csvParsingService.parseCsv(brandsCsv, BrandModel.class);
@@ -47,11 +47,6 @@ public class BrandService {
         .brands(sortedBrandModels)
         .lastUpdatedTime(ZonedDateTime.now())
         .build();
-  }
-
-  @Scheduled(cron = "${cache.brands.cron}")
-  @CacheEvict(value = "${cache.brands.name}", allEntries = true)
-  public void clearCache() {
   }
 
   private void attachProducts(BrandModel brandModel, Map<String, List<ProductModel>> productsByBrandNames) {
