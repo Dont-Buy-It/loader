@@ -9,6 +9,7 @@ BRANDS_CSV_URL=https://static.dwcdn.net/data/4yMOy.csv
 BRAND_IMAGES_CSV_URL=https://docs.google.com/spreadsheets/d/1eX7JGrhg9Jagl0zVj3_NkRfhZmpKDbDbq8z4e-kil38/gviz/tq?tqx=out:csv&sheet=brand-images
 PRODUCTS_CSV_URL=https://docs.google.com/spreadsheets/d/1eX7JGrhg9Jagl0zVj3_NkRfhZmpKDbDbq8z4e-kil38/gviz/tq?tqx=out:csv&sheet=products
 ACTIONS_CSV_URL=https://docs.google.com/spreadsheets/d/1eX7JGrhg9Jagl0zVj3_NkRfhZmpKDbDbq8z4e-kil38/gviz/tq?tqx=out:csv&sheet=actions
+CACHE_CRON=0 0 */12 ? * *
 ```
 
 ### Running the application locally
