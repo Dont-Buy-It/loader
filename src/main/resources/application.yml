@@ -32,7 +32,7 @@ services:
         url: ${ACTIONS_CSV_URL:https://docs.google.com/spreadsheets/d/1eX7JGrhg9Jagl0zVj3_NkRfhZmpKDbDbq8z4e-kil38/gviz/tq?tqx=out:csv&sheet=actions}
 
 cache:
-  cron: "0 0 * * * *"
+  cron: "${CACHE_CRON:0 0 */12 ? * *}"
 
 admin:
   username: ${ADMIN_USERNAME:admin}
