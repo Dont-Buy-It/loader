@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 import static java.util.Comparator.comparing;
+import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toList;
 
 @Service
@@ -22,6 +23,7 @@ public class ProductService {
   public List<ProductModel> getProducts() {
     final String productsCsv = csvLoadingService.loadProductsCsv();
     return csvParsingService.parseCsv(productsCsv, ProductModel.class).stream()
+        .filter(productModel -> nonNull(productModel.getName()))
         .sorted(comparing(ProductModel::getName))
         .collect(toList());
   }
