@@ -1,6 +1,7 @@
 package com.dontbuyit.loader.service;
 
 import com.opencsv.bean.CsvToBeanBuilder;
+import com.opencsv.enums.CSVReaderNullFieldIndicator;
 import org.springframework.stereotype.Service;
 
 import java.io.StringReader;
@@ -15,6 +16,7 @@ public class CsvParsingService {
     return new CsvToBeanBuilder<T>(new StringReader(csvString))
         .withType(type)
         .withSkipLines(HEADER_LINES_AMOUNT)
+        .withFieldAsNull(CSVReaderNullFieldIndicator.BOTH)
         .build()
         .parse();
   }
