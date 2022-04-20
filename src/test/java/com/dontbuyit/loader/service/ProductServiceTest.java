@@ -17,8 +17,8 @@ class ProductServiceTest {
 
   private static final String PRODUCTS_CSV_STRING = "productsCsvString";
 
-  private final ProductModel productModel1 = ProductModel.builder().name("a").build();
-  private final ProductModel productModel2 = ProductModel.builder().name("b").build();
+  private final ProductModel productModel1 = ProductModel.builder().name("a").brandName("a").build();
+  private final ProductModel productModel2 = ProductModel.builder().name("b").brandName("b").build();
 
   @Mock
   private CsvLoadingService csvLoadingServiceMock;
