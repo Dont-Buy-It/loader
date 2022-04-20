@@ -24,6 +24,7 @@ public class ProductService {
     final String productsCsv = csvLoadingService.loadProductsCsv();
     return csvParsingService.parseCsv(productsCsv, ProductModel.class).stream()
         .filter(productModel -> nonNull(productModel.getName()))
+        .filter(productModel -> nonNull(productModel.getBrandName()))
         .sorted(comparing(ProductModel::getName))
         .collect(toList());
   }
