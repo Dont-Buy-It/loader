@@ -32,7 +32,7 @@ public class BrandSearchService {
 
   private List<BrandModel> filterBrands(List<BrandModel> brandModels, String search) {
     return brandModels.stream()
-        .filter(nonNull(search) ? brandModel -> brandMatchesSearch(brandModel, search) : brandModel -> true)
+        .filter(nonNull(search) ? brandModel -> brandMatchesSearch(brandModel, search.trim()) : brandModel -> true)
         .collect(toList());
   }
 
