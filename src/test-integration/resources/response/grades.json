@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Grade1",
+    "displayName": "Grade1 Display Name",
+    "description": "Grade1 Description",
+    "color": "#000001",
+    "priority": 0,
+    "availableForPurchase": true
+  },
+  {
+    "name": "Grade2",
+    "displayName": "Grade2 Display Name",
+    "description": "Grade2 Description",
+    "color": "#000002",
+    "priority": 1,
+    "availableForPurchase": true
+  },
+  {
+    "name": "Grade3",
+    "displayName": "Grade3 Display Name",
+    "description": "Grade3 Description",
+    "color": "#000003",
+    "priority": 2,
+    "availableForPurchase": false
+  }
+]

@@ -1,6 +1,3 @@
-api:
-  version: 1.0
-
 server:
   port: 2000
 
@@ -24,12 +21,10 @@ services:
     csv:
       brands:
         url: http://brands.csv.url.com
-      brandImages:
-        url: http://brand-images.csv.url.com
       products:
         url: http://products.csv.url.com
-      actions:
-        url: http://actions.csv.url.com
+      grades:
+        url: http://grades.csv.url.com
 
 cache:
   cron: "0 0 * * * *"

@@ -1,11 +1,14 @@
 package com.dontbuyit.loader.model;
 
-import com.opencsv.bean.CsvBindByPosition;
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -14,19 +17,49 @@ import java.util.List;
 @Builder(toBuilder = true)
 public class BrandModel {
 
-  @CsvBindByPosition(position = 0)
-  private String name;
+    @CsvBindByName(column = "Translated Country")
+    private String translatedCountry;
 
-  @CsvBindByPosition(position = 1)
-  private String action;
+    @CsvBindByName(column = "Translated Action")
+    private String translatedAction;
 
-  @CsvBindByPosition(position = 2)
-  private String notes;
+    @CsvBindByName(column = "Translated GICS Industry Sector")
+    private String translatedGicsIndustrySector;
 
-  @CsvBindByPosition(position = 3)
-  private String actionEsp;
+    @CsvBindByName(column = "Translated Magnitude of Russian Operations")
+    private String translatedMagnitudeOfOccupantOperations;
 
-  private String imageUrl;
+    @CsvDate("yyyy/MM/dd h:mm a")
+    @CsvBindByName(column = "Row Updated At")
+    private LocalDateTime rowUpdatedAt;
 
-  private List<ProductModel> products;
+    @CsvBindByName(column = "Name")
+    private String name;
+
+    @CsvBindByName(column = "Logo")
+    private String logo;
+
+    @CsvBindByName(column = "Grade")
+    private String grade;
+
+    @CsvBindByName(column = "Country")
+    private String country;
+
+    @CsvBindByName(column = "Action")
+    private String action;
+
+    @CsvDate("yyyy-MM-dd")
+    @CsvBindByName(column = "Date of Last Action")
+    private LocalDate dateOfLastAction;
+
+    @CsvBindByName(column = "Link to Announcement")
+    private String linkToAnnouncement;
+
+    @CsvBindByName(column = "GICS Industry Sector")
+    private String gicsIndustrySector;
+
+    @CsvBindByName(column = "Magnitude of Russian Operations")
+    private String magnitudeOfOccupantOperations;
+
+    private List<ProductModel> products;
 }

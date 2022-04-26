@@ -16,45 +16,45 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationEn
 @EnableWebSecurity
 public class ActuatorSecurityConfig extends WebSecurityConfigurerAdapter {
 
-  private static final String ADMIN_ROLE = "ADMIN";
+    private static final String ADMIN_ROLE = "ADMIN";
 
-  @Value("${admin.username}")
-  private String adminUsername;
+    @Value("${admin.username}")
+    private String adminUsername;
 
-  @Value("${admin.password}")
-  private String adminPassword;
+    @Value("${admin.password}")
+    private String adminPassword;
 
-  @Override
-  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    final PasswordEncoder passwordEncoder = passwordEncoder();
-    auth.inMemoryAuthentication()
-        .passwordEncoder(passwordEncoder)
-        .withUser(adminUsername)
-        .password(passwordEncoder.encode(adminPassword))
-        .roles(ADMIN_ROLE);
-  }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        final PasswordEncoder passwordEncoder = passwordEncoder();
+        auth.inMemoryAuthentication()
+                .passwordEncoder(passwordEncoder)
+                .withUser(adminUsername)
+                .password(passwordEncoder.encode(adminPassword))
+                .roles(ADMIN_ROLE);
+    }
 
-  @Override
-  protected void configure(HttpSecurity httpSecurity) throws Exception {
-    httpSecurity
-        .antMatcher("/actuator/**")
-        .authorizeRequests()
-        .anyRequest()
-        .hasRole(ADMIN_ROLE)
-        .and()
-        .httpBasic()
-        .authenticationEntryPoint(authenticationEntryPoint());
-  }
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity
+                .antMatcher("/actuator/**")
+                .authorizeRequests()
+                .anyRequest()
+                .hasRole(ADMIN_ROLE)
+                .and()
+                .httpBasic()
+                .authenticationEntryPoint(authenticationEntryPoint());
+    }
 
-  @Bean
-  public PasswordEncoder passwordEncoder() {
-    return new BCryptPasswordEncoder();
-  }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 
-  @Bean
-  public AuthenticationEntryPoint authenticationEntryPoint() {
-    final BasicAuthenticationEntryPoint entryPoint = new BasicAuthenticationEntryPoint();
-    entryPoint.setRealmName("actuator");
-    return entryPoint;
-  }
+    @Bean
+    public AuthenticationEntryPoint authenticationEntryPoint() {
+        final BasicAuthenticationEntryPoint entryPoint = new BasicAuthenticationEntryPoint();
+        entryPoint.setRealmName("actuator");
+        return entryPoint;
+    }
 }

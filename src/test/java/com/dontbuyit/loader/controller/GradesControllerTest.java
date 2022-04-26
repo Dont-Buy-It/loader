@@ -1,7 +1,7 @@
 package com.dontbuyit.loader.controller;
 
-import com.dontbuyit.loader.model.BrandModel;
-import com.dontbuyit.loader.service.BrandService;
+import com.dontbuyit.loader.model.GradeModel;
+import com.dontbuyit.loader.service.GradeService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -14,22 +14,22 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
-class BrandsControllerTest {
+class GradesControllerTest {
 
-    private final BrandModel brandModel = BrandModel.builder().build();
+    private final List<GradeModel> gradeModels = List.of();
 
     @Mock
-    private BrandService brandServiceMock;
+    private GradeService gradeServiceMock;
 
     @InjectMocks
-    private BrandsController brandsController;
+    private GradesController gradesController;
 
     @Test
     void shouldReturnActions() {
-        when(brandServiceMock.getBrands()).thenReturn(List.of(brandModel));
+        when(gradeServiceMock.getGrades()).thenReturn(gradeModels);
 
-        final List<BrandModel> actualResult = brandsController.getBrands();
+        final List<GradeModel> actualResult = gradesController.getGrades();
 
-        assertEquals(List.of(brandModel), actualResult);
+        assertEquals(gradeModels, actualResult);
     }
 }
