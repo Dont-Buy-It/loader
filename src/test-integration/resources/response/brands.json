@@ -1,10 +1,19 @@
 [
   {
+    "translatedCountry": "Translated Country 1",
+    "translatedAction": "Translated Action 1",
+    "translatedGicsIndustrySector": "Translated GICS Industry Sector 1",
+    "translatedMagnitudeOfOccupantOperations": "Translated Magnitude of Russian Operations 1",
+    "rowUpdatedAt": "2022-04-27T01:00:00",
     "name": "Brand1",
-    "action": "Action1",
-    "notes": "Note1",
-    "actionEsp": "ActionEsp1",
-    "imageUrl": "http://brand1.com/image",
+    "logo": "Logo 1",
+    "grade": "Grade1",
+    "country": "Country 1",
+    "action": "Action 1",
+    "dateOfLastAction": "2022-03-01",
+    "linkToAnnouncement": "Link to Announcement 1",
+    "gicsIndustrySector": "GICS Industry Sector 1",
+    "magnitudeOfOccupantOperations": "Magnitude of Russian Operations 1",
     "products": [
       {
         "name": "Product1",
@@ -19,11 +28,20 @@
     ]
   },
   {
+    "translatedCountry": "Translated Country 2",
+    "translatedAction": "Translated Action 2",
+    "translatedGicsIndustrySector": "Translated GICS Industry Sector 2",
+    "translatedMagnitudeOfOccupantOperations": "Translated Magnitude of Russian Operations 2",
+    "rowUpdatedAt": "2022-04-27T02:00:00",
     "name": "Brand2",
-    "action": "Action2",
-    "notes": "Note2",
-    "actionEsp": "ActionEsp2",
-    "imageUrl": "http://brand2.com/image",
+    "logo": "Logo 2",
+    "grade": "Grade2",
+    "country": "Country 2",
+    "action": "Action 2",
+    "dateOfLastAction": "2022-03-02",
+    "linkToAnnouncement": "Link to Announcement 2",
+    "gicsIndustrySector": "GICS Industry Sector 2",
+    "magnitudeOfOccupantOperations": "Magnitude of Russian Operations 2",
     "products": [
       {
         "name": "Product3",

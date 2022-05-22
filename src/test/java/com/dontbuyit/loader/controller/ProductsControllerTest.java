@@ -6,30 +6,30 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(SpringExtension.class)
 class ProductsControllerTest {
 
-  private final List<ProductModel> productModels = List.of();
+    private final List<ProductModel> productModels = List.of();
 
-  @Mock
-  private ProductService productServiceMock;
+    @Mock
+    private ProductService productServiceMock;
 
-  @InjectMocks
-  private ProductsController productsController;
+    @InjectMocks
+    private ProductsController productsController;
 
-  @Test
-  void shouldReturnActions() {
-    when(productServiceMock.getProducts()).thenReturn(productModels);
+    @Test
+    void shouldReturnActions() {
+        when(productServiceMock.getProducts()).thenReturn(productModels);
 
-    final List<ProductModel> actualResult = productsController.getProducts();
+        final List<ProductModel> actualResult = productsController.getProducts();
 
-    assertEquals(productModels, actualResult);
-  }
+        assertEquals(productModels, actualResult);
+    }
 }

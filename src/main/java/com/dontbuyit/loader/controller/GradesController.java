@@ -1,7 +1,7 @@
 package com.dontbuyit.loader.controller;
 
-import com.dontbuyit.loader.model.ProductModel;
-import com.dontbuyit.loader.service.ProductService;
+import com.dontbuyit.loader.model.GradeModel;
+import com.dontbuyit.loader.service.GradeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,13 +11,13 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/products")
-public class ProductsController {
+@RequestMapping("/api/grades")
+public class GradesController {
 
-    private final ProductService productService;
+    private final GradeService gradeService;
 
     @GetMapping
-    public List<ProductModel> getProducts() {
-        return productService.getProducts();
+    public List<GradeModel> getGrades() {
+        return gradeService.getGrades();
     }
 }
