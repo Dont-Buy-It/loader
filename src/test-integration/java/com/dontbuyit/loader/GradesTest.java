@@ -25,10 +25,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @SuppressWarnings({"rawtypes", "unchecked"})
-public class ProductsTest {
+public class GradesTest {
 
-    private static final String URL = "/api/products";
-    private static final String PRODUCTS_CSV_URL = "http://products.csv.url.com";
+    private static final String URL = "/api/grades";
+    private static final String GRADES_CSV_URL = "http://grades.csv.url.com";
 
     @MockBean
     private WebClient webClientMock;
@@ -46,22 +46,22 @@ public class ProductsTest {
     protected MockMvc mockMvc;
 
     @Test
-    void shouldReturnProducts() throws Exception {
+    void shouldReturnGrades() throws Exception {
         when(webClientMock.get()).thenReturn(requestHeadersUriSpecMock);
-        when(requestHeadersUriSpecMock.uri(PRODUCTS_CSV_URL)).thenReturn(requestHeadersSpecMock);
+        when(requestHeadersUriSpecMock.uri(GRADES_CSV_URL)).thenReturn(requestHeadersSpecMock);
         when(requestHeadersSpecMock.retrieve()).thenReturn(responseSpecMock);
-        when(responseSpecMock.bodyToMono(String.class)).thenReturn(Mono.just(getProductsCsv()));
+        when(responseSpecMock.bodyToMono(String.class)).thenReturn(Mono.just(getGradesCsv()));
 
         mockMvc.perform(get(URL))
                 .andExpect(status().isOk())
-                .andExpect(content().json(getProductsResponse()));
+                .andExpect(content().json(getGradesResponse()));
     }
 
-    private String getProductsCsv() throws IOException {
-        return resourceToString("/csv/products.csv", defaultCharset());
+    private String getGradesCsv() throws IOException {
+        return resourceToString("/csv/grades.csv", defaultCharset());
     }
 
-    private String getProductsResponse() throws IOException {
-        return resourceToString("/response/products.json", defaultCharset());
+    private String getGradesResponse() throws IOException {
+        return resourceToString("/response/grades.json", defaultCharset());
     }
 }

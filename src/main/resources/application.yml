@@ -1,6 +1,3 @@
-api:
-  version: 1.0
-
 server:
   port: 2000
 
@@ -23,16 +20,14 @@ services:
   external:
     csv:
       brands:
-        url: ${BRANDS_CSV_URL:https://static.dwcdn.net/data/4yMOy.csv}
-      brandImages:
-        url: ${BRAND_IMAGES_CSV_URL:https://docs.google.com/spreadsheets/d/1eX7JGrhg9Jagl0zVj3_NkRfhZmpKDbDbq8z4e-kil38/gviz/tq?tqx=out:csv&sheet=brand-images}
+        url: ${BRANDS_CSV_URL:https://docs.google.com/spreadsheets/d/1XPEuCgVmkOHUcYIqSmJ8lFIQPaK2F-tV738xsj5muWQ/gviz/tq?tqx=out:csv&sheet=brands}
       products:
-        url: ${PRODUCTS_CSV_URL:https://docs.google.com/spreadsheets/d/1eX7JGrhg9Jagl0zVj3_NkRfhZmpKDbDbq8z4e-kil38/gviz/tq?tqx=out:csv&sheet=products}
-      actions:
-        url: ${ACTIONS_CSV_URL:https://docs.google.com/spreadsheets/d/1eX7JGrhg9Jagl0zVj3_NkRfhZmpKDbDbq8z4e-kil38/gviz/tq?tqx=out:csv&sheet=actions}
+        url: ${PRODUCTS_CSV_URL:https://docs.google.com/spreadsheets/d/1XPEuCgVmkOHUcYIqSmJ8lFIQPaK2F-tV738xsj5muWQ/gviz/tq?tqx=out:csv&sheet=products}
+      grades:
+        url: ${GRADES_CSV_URL:https://docs.google.com/spreadsheets/d/1XPEuCgVmkOHUcYIqSmJ8lFIQPaK2F-tV738xsj5muWQ/gviz/tq?tqx=out:csv&sheet=grades}
 
 cache:
-  cron: "${CACHE_CRON:0 0 */12 ? * *}"
+  cron: "${CACHE_CRON:0 0 * * * *}"
 
 admin:
   username: ${ADMIN_USERNAME:admin}

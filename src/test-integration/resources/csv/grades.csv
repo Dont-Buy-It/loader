@@ -1,0 +1,4 @@
+"Name","Display Name","Description","Color","Priority","Is Available for Purchase"
+"Grade1","Grade1 Display Name","Grade1 Description","#000001","0","TRUE"
+"Grade2","Grade2 Display Name","Grade2 Description","#000002","1","TRUE"
+"Grade3","Grade3 Display Name","Grade3 Description","#000003","2","FALSE"
