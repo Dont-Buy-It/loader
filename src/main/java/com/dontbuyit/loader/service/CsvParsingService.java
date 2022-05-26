@@ -15,7 +15,7 @@ import java.util.List;
 public class CsvParsingService {
 
     private static final long RETRIES_AMOUNT = 5;
-    private static final long TIMEOUT_SECONDS = 20;
+    private static final long TIMEOUT_SECONDS = 30;
 
     private final WebClient webClient;
 

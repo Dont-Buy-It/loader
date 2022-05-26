@@ -21,6 +21,8 @@ services:
     csv:
       brands:
         url: http://brands.csv.url.com
+      ukrainianBrands:
+        url: http://ukrainian-brands.csv.url.com
       products:
         url: http://products.csv.url.com
       grades:
