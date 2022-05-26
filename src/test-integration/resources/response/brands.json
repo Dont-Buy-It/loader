@@ -49,5 +49,39 @@
         "imageUrl": "http://product3.com/image"
       }
     ]
+  },
+  {
+    "translatedCountry": null,
+    "translatedAction": null,
+    "translatedGicsIndustrySector": null,
+    "translatedMagnitudeOfOccupantOperations": null,
+    "rowUpdatedAt": null,
+    "name": "UkrainianBrand1",
+    "logo": "Image1",
+    "grade": "Ukrainian Brand",
+    "country": "Ukraine",
+    "action": null,
+    "dateOfLastAction": null,
+    "linkToAnnouncement": null,
+    "gicsIndustrySector": null,
+    "magnitudeOfOccupantOperations": null,
+    "products": []
+  },
+  {
+    "translatedCountry": null,
+    "translatedAction": null,
+    "translatedGicsIndustrySector": null,
+    "translatedMagnitudeOfOccupantOperations": null,
+    "rowUpdatedAt": null,
+    "name": "UkrainianBrand2",
+    "logo": "Image2",
+    "grade": "Ukrainian Brand",
+    "country": "Ukraine",
+    "action": null,
+    "dateOfLastAction": null,
+    "linkToAnnouncement": null,
+    "gicsIndustrySector": null,
+    "magnitudeOfOccupantOperations": null,
+    "products": []
   }
 ]

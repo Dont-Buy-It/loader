@@ -31,6 +31,7 @@ public class BrandsTest {
 
     private static final String URL = "/api/brands";
     private static final String BRANDS_CSV_URL = "http://brands.csv.url.com";
+    private static final String UKRAINIAN_BRANDS_CSV_URL = "http://ukrainian-brands.csv.url.com";
     private static final String PRODUCTS_CSV_URL = "http://products.csv.url.com";
 
     @MockBean
@@ -44,10 +45,14 @@ public class BrandsTest {
     @Mock
     private RequestHeadersSpec brandsRequestHeadersSpecMock;
     @Mock
+    private RequestHeadersSpec ukrainianBrandsRequestHeadersSpecMock;
+    @Mock
     private RequestHeadersSpec productsRequestHeadersSpecMock;
 
     @Mock
     private ResponseSpec brandsResponseSpecMock;
+    @Mock
+    private ResponseSpec ukrainianBrandsResponseSpecMock;
     @Mock
     private ResponseSpec productsResponseSpecMock;
 
@@ -62,6 +67,10 @@ public class BrandsTest {
         when(brandsRequestHeadersSpecMock.retrieve()).thenReturn(brandsResponseSpecMock);
         when(brandsResponseSpecMock.bodyToMono(String.class)).thenReturn(Mono.just(getBrandsCsv()));
 
+        when(requestHeadersUriSpecMock.uri(UKRAINIAN_BRANDS_CSV_URL)).thenReturn(ukrainianBrandsRequestHeadersSpecMock);
+        when(ukrainianBrandsRequestHeadersSpecMock.retrieve()).thenReturn(ukrainianBrandsResponseSpecMock);
+        when(ukrainianBrandsResponseSpecMock.bodyToMono(String.class)).thenReturn(Mono.just(getUkrainianBrandsCsv()));
+
         when(requestHeadersUriSpecMock.uri(PRODUCTS_CSV_URL)).thenReturn(productsRequestHeadersSpecMock);
         when(productsRequestHeadersSpecMock.retrieve()).thenReturn(productsResponseSpecMock);
         when(productsResponseSpecMock.bodyToMono(String.class)).thenReturn(Mono.just(getProductsCsv()));
@@ -73,6 +82,10 @@ public class BrandsTest {
 
     private String getBrandsCsv() throws IOException {
         return resourceToString("/csv/brands.csv", defaultCharset());
+    }
+
+    private String getUkrainianBrandsCsv() throws IOException {
+        return resourceToString("/csv/ukrainian_brands.csv", defaultCharset());
     }
 
     private String getProductsCsv() throws IOException {
