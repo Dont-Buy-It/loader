@@ -18,7 +18,7 @@ public class ApplicationConfig {
 
     @Bean
     public WebClient webClient() {
-        final int maxInMemorySize = 16 * 1024 * 1024;
+        final int maxInMemorySize = 100 * 1024 * 1024;
         final ExchangeStrategies exchangeStrategies = ExchangeStrategies.builder()
                 .codecs(codecs -> codecs.defaultCodecs().maxInMemorySize(maxInMemorySize))
                 .build();

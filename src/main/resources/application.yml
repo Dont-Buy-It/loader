@@ -21,6 +21,8 @@ services:
     csv:
       brands:
         url: ${BRANDS_CSV_URL:https://docs.google.com/spreadsheets/d/1XPEuCgVmkOHUcYIqSmJ8lFIQPaK2F-tV738xsj5muWQ/gviz/tq?tqx=out:csv&sheet=brands}
+      ukrainianBrands:
+        url: ${UKRAINIAN_BRANDS_CSV_URL:https://docs.google.com/spreadsheets/d/1XPEuCgVmkOHUcYIqSmJ8lFIQPaK2F-tV738xsj5muWQ/gviz/tq?tqx=out:csv&sheet=ukrainian-brands}
       products:
         url: ${PRODUCTS_CSV_URL:https://docs.google.com/spreadsheets/d/1XPEuCgVmkOHUcYIqSmJ8lFIQPaK2F-tV738xsj5muWQ/gviz/tq?tqx=out:csv&sheet=products}
       grades:
